@@ -1,0 +1,67 @@
+.header {
+  padding: 32px 0;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.svg-logo-dims {
+  width: 101px;
+  height: 32px;
+}
+
+.event-info {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 6px;
+}
+
+.event-date,
+.event-timeleft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  padding: 4px;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 8px;
+  background-color: $event-info-bg;
+  border-radius: 4px;
+}
+.event-date {
+  width: 88px;
+}
+.event-timeleft {
+  width: 84px;
+}
+
+.calandar-icon,
+.clock-icon {
+  width: 13px;
+  height: 13px;
+  margin-right: 4px;
+  background-image: url('../images/sprite.svg#calendar_today');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.calandar-icon {
+  background-image: url('../images/sprite.svg#calendar_today');
+}
+
+.clock-icon {
+  background-image: url('../images/sprite.svg#gg_time');
+}
+
+.svg-calendar_today-dims,
+.svg-gg_time-dims {
+  width: 13px;
+  height: 13px;
+}

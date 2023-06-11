@@ -1,0 +1,68 @@
+.webinar-page {
+  position: relative;
+  flex-grow: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: -50%;
+    right: 0;
+    background: $gradient;
+    filter: blur(250px);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    @include for-large-up {
+      left: 70%;
+      bottom: 40%;
+      height: 100%;
+      opacity: 0.8;
+    }
+  }
+  &::before {
+    position: absolute;
+    content: '';
+    bottom: 63%;
+    right: 80%;
+    background: $gradient;
+    width: 50%;
+    height: 50%;
+    opacity: 0;
+    filter: blur(103.131px);
+    z-index: -1;
+    @include for-large-up {
+      opacity: 0.5;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include for-large-up {
+    height: calc(100vh - 100px);
+    justify-content: center;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  margin: 0 auto;
+  max-width: 1072px;
+  padding: 0 16px;
+  @include for-large-up {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 56px;
+  }
+}

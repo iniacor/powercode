@@ -1,0 +1,141 @@
+// call action starts
+.call-action-wrapper {
+  display: flex;
+  @include for-large-up {
+    flex-direction: column;
+    max-width: 455px;
+    width: 100%;
+  }
+}
+
+.call-action {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  @include for-large-up {
+    align-items: flex-start;
+  }
+  &__text {
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    @include for-large-up {
+      text-align: left;
+      font-size: 18px;
+      line-height: 27px;
+      padding-bottom: 52px;
+    }
+  }
+}
+
+.salary {
+  font-weight: 600;
+  &--accent {
+    font-weight: 600;
+    color: $blue;
+    @include for-large-up {
+      color: $white;
+      display: inline-block;
+    }
+  }
+  &--desctop-accent {
+    background-color: transparent;
+    padding: 0;
+    @include for-large-up {
+      padding: 2px 6px;
+      background-color: #4252d1;
+      border-radius: 3px;
+    }
+  }
+}
+
+.webinar-lable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 89px;
+  height: 24px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  background-color: $blue;
+  border-radius: 4px;
+  @include for-large-up {
+    min-width: 119px;
+    height: 32px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &__icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    background-image: url('../images/sprite.svg#globe');
+    @include for-large-up {
+      margin-right: 6px;
+      width: 19px;
+      height: 19px;
+    }
+  }
+}
+
+.svg-globe-dims {
+  width: 14px;
+  height: 14px;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-weight: 800;
+  text-align: center;
+  color: $accent;
+  text-transform: uppercase;
+  @include for-large-up {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: $white;
+  text-transform: none;
+  @include for-large-up {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  &__accent {
+    display: inline-block;
+    margin-right: 12px;
+    padding: 10px;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    @include for-large-up {
+      font-size: 24px;
+      line-height: 29px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      background-color: $accent;
+      transform: rotate(-2deg);
+      z-index: -1;
+    }
+  }
+}
+// call action ends

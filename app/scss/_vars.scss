@@ -1,6 +1,6 @@
 $accent: #ff3459;
 $blue: #4252d1;
-$mobile-call-action: #0048ff;
+$mobile-call-action-btn: #0048ff;
 
 $main-bg: #242731;
 $form-bg: #303a53;
@@ -13,39 +13,3 @@ $light-text: rgba(255, 255, 255, 0.5);
 
 $gradient: #332f65;
 $event-info-bg: $gradient;
-
-// $breakpoint-xs: 320 ; // by default
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
-
-@mixin for-small-up {
-  @media screen and (min-width: $breakpoint-sm) {
-    @content;
-  }
-}
-
-@mixin for-medium-up {
-  @media screen and (min-width: $breakpoint-md) {
-    @content;
-  }
-}
-@mixin for-large-up {
-  @media screen and (min-width: $breakpoint-lg) {
-    @content;
-  }
-}
-
-@mixin for-extra-large-up {
-  @media screen and (min-width: $breakpoint-xl) {
-    @content;
-  }
-}
-
-$maxWidth: 1280;
-@mixin adaptiv-font($pcSize, $mobSize) {
-  $addSize: $pcSize - $mobSize;
-  $maxWidth: $maxWidth - 320;
-  font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
-}

@@ -8,6 +8,13 @@ html {
   box-sizing: inherit;
 }
 
+::after,
+::before {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -29,7 +36,6 @@ h2,
 h3,
 h4 {
   margin: 0;
-  text-transform: uppercase;
 }
 
 h1 {
@@ -60,9 +66,14 @@ button {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1072px;
   margin: 0 auto;
   padding: 0 16px;
+}
+.icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .sr-only {

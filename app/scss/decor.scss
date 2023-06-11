@@ -1,0 +1,124 @@
+// decor starts
+.decor-inscription {
+  display: none;
+  @include for-large-up {
+    display: block;
+    position: absolute;
+    bottom: -45px;
+    left: 0;
+    right: 0;
+    font-weight: 800;
+    font-size: 117px;
+    line-height: 158px;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-text-stroke: 1.59744px rgba(255, 255, 255, 0.05);
+    -webkit-text-fill-color: transparent;
+  }
+}
+.decor-block {
+  position: absolute;
+  top: 38%;
+  right: 3%;
+  display: none;
+  flex-direction: column;
+  width: 150px;
+  @include for-large-up {
+    display: flex;
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: auto;
+  }
+  &__item--html {
+    &::after {
+      position: absolute;
+      content: '';
+      top: 14px;
+      right: -5px;
+      width: 8px;
+      height: 8px;
+      background-image: url('../images/sprite.svg#html-decor');
+    }
+  }
+  &__item--css {
+    justify-content: flex-start;
+    &::after {
+      position: absolute;
+      content: '';
+      left: 52px;
+      width: 6px;
+      height: 6px;
+      background-image: url('../images/sprite.svg#css-decor');
+    }
+  }
+  &__item--js {
+    top: -30px;
+    &::after {
+      position: absolute;
+      content: '';
+      right: -15px;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      background-image: url('../images/sprite.svg#js-decor');
+    }
+  }
+  &__item--sublime {
+    top: -30px;
+    justify-content: flex-start;
+    &::after {
+      position: absolute;
+      content: '';
+      top: -13px;
+      left: 47px;
+      width: 6px;
+      height: 6px;
+      background-image: url('../images/sprite.svg#sublime-decor');
+    }
+  }
+  &__item--vscode {
+    top: -30px;
+    margin-right: 21px;
+    &::after {
+      position: absolute;
+      content: '';
+      right: 11px;
+      bottom: 10px;
+      width: 6px;
+      height: 6px;
+      background-image: url('../images/sprite.svg#vs-code-decor');
+    }
+  }
+
+  &__icon--html {
+    background-image: url('../images/html5-logo-icon.png');
+    width: 88px;
+    height: 88px;
+  }
+  &__icon--css {
+    background-image: url('../images/CSS3-logo-icon.png');
+    width: 60px;
+    height: 85px;
+  }
+  &__icon--js {
+    background-image: url('../images/javascript_logo-icon.png');
+    width: 62px;
+    height: 73px;
+  }
+  &__icon--sublime {
+    background-image: url('../images/sublime-text-logo-icon.png');
+    width: 54px;
+    height: 54px;
+  }
+  &__icon--vscode {
+    background-image: url('../images/VS-Code-logo-icon.png');
+    width: 61px;
+    height: 61px;
+  }
+}
+// decor ends

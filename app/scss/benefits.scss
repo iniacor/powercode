@@ -1,0 +1,102 @@
+// benefits starts
+.benefits {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  max-width: 224px;
+  width: 100%;
+  padding: 36px 0;
+  @include for-large-up {
+    display: flex;
+    align-items: start;
+    max-width: none;
+    padding: 0;
+  }
+}
+.benefits-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 224px;
+  width: 100%;
+  padding: 36px 0;
+  @include for-large-up {
+    display: none;
+  }
+}
+
+.present {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+  @include for-large-up {
+    order: 2;
+    margin-bottom: 0;
+  }
+  &__info {
+    flex-basis: 162px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    @include for-large-up {
+      flex-basis: 210px;
+      width: 100%;
+    }
+  }
+  &__benefit {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    @include for-large-up {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}
+.bonus-icon {
+  width: 46px;
+  height: 46px;
+  margin-right: 16px;
+  background-image: url('../images/present.png');
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  @include for-large-up {
+    order: 1;
+    margin-bottom: 16px;
+  }
+  &__info {
+    flex-basis: 162px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+    @include for-large-up {
+      flex-basis: 320px;
+    }
+  }
+  &__name {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    text-transform: uppercase;
+    @include for-large-up {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+  &__name--accent {
+    color: $blue;
+  }
+}
+.author-icon {
+  width: 51px;
+  height: 49px;
+  margin-right: 16px;
+  background-image: url('../images/author.png');
+}
+
+// benefits ends

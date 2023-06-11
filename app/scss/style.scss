@@ -1,12 +1,10 @@
 @import 'vars';
+@import 'mixins';
 @import 'fonts';
 @import 'global';
-@import 'form-page';
+@import 'webinar-page';
 @import 'header';
-
-.main {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  align-items: center;
-}
+@import 'call-action';
+@import 'form';
+@import 'benefits';
+@import 'decor';

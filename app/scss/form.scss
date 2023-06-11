@@ -1,0 +1,88 @@
+// form starts
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 21px;
+  background-color: $form-bg;
+  text-align: center;
+  border-radius: 9px;
+  box-shadow: 0px 8.96175px 44.8087px rgba(40, 127, 165, 0.1);
+  @include for-large-up {
+    flex-basis: 50%;
+    max-width: 366px;
+    height: auto;
+    padding: 50px 55px;
+  }
+  &__title {
+    margin-bottom: 18px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    @include for-large-up {
+      margin-bottom: 20px;
+      font-size: 22px;
+      line-height: 26px;
+    }
+  }
+  &--accent {
+    color: $accent;
+  }
+  &__input {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 12px 27px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    color: white;
+    background-color: #272d3d;
+    border: none;
+    border-radius: 4px;
+    @include for-large-up {
+      min-height: 51px;
+    }
+    &::placeholder {
+      color: white;
+      @include for-large-up {
+        color: $placeholder-text;
+      }
+    }
+  }
+}
+
+.form-button {
+  margin-bottom: 19px;
+  width: 222px;
+  height: 45px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  color: $white;
+  background-color: $mobile-call-action-btn;
+  border-radius: 4px;
+  @include for-large-up {
+    width: 100%;
+    height: 51px;
+    background-color: $accent;
+  }
+}
+
+.policy {
+  max-width: 222px;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  color: $light-text;
+  @include for-large-up {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  &__link {
+    color: $light-text;
+    cursor: pointer;
+  }
+}
+// form ends

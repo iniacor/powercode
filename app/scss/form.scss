@@ -1,4 +1,13 @@
 // form starts
+.form-wrapper {
+  grid-row: 2/3;
+  grid-column: 1;
+  @include for-large-up {
+    grid-row: 1/3;
+    grid-column: 2;
+    justify-self: flex-end;
+  }
+}
 .form {
   display: flex;
   flex-direction: column;

@@ -1,20 +1,10 @@
 // call action starts
-.call-action-wrapper {
-  display: flex;
-  @include for-large-up {
-    flex-direction: column;
-    max-width: 455px;
-    width: 100%;
-  }
-}
 
 .call-action {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  text-align: center;
   @include for-large-up {
-    align-items: flex-start;
+    grid-row: 1/3;
+    grid-column: 1;
+    justify-self: flex-start;
   }
   &__text {
     padding-bottom: 20px;
@@ -34,11 +24,11 @@
 .salary {
   font-weight: 600;
   &--accent {
+    display: inline-block;
     font-weight: 600;
     color: $blue;
     @include for-large-up {
       color: $white;
-      display: inline-block;
     }
   }
   &--desctop-accent {
@@ -56,7 +46,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 89px;
+  margin: 0 auto;
+  max-width: 89px;
   height: 24px;
   padding: 3px 10px;
   font-size: 12px;
@@ -65,7 +56,8 @@
   background-color: $blue;
   border-radius: 4px;
   @include for-large-up {
-    min-width: 119px;
+    margin: 0;
+    max-width: 119px;
     height: 32px;
     font-size: 16px;
     line-height: 24px;

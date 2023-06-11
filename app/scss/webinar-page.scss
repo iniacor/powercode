@@ -11,6 +11,7 @@
     content: '';
     bottom: -50%;
     right: 0;
+    display: none;
     background: $gradient;
     filter: blur(250px);
     z-index: -1;
@@ -18,6 +19,7 @@
     height: 100%;
     opacity: 1;
     @include for-large-up {
+      display: inline-block;
       left: 70%;
       bottom: 40%;
       height: 100%;
@@ -52,16 +54,13 @@
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
+  display: grid;
+  grid-template-columns: 1fr;
   margin: 0 auto;
   max-width: 1072px;
   padding: 0 16px;
   @include for-large-up {
-    flex-direction: row;
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
     padding: 0 56px;
   }

@@ -56,13 +56,67 @@
           </div>
           
           <div class="form-wrapper">
-            <form class="form webinar-form" id="myWebinarForm">
+            <form class="form webinar-form" id="myWebinarForm" name="myWebinarForm">
               <h2 class="form__title">
                 Запишитесь <span class="form--accent">бесплатно</span> и получите подарок
               </h2>
-              <input class="form__input" type="text" id="name" placeholder="Ваше имя и фамилия" />
-              <input class="form__input" type="tel" id="phoneNumber" placeholder="Ваш номер телефона" />
-              <input class="form__input" type="email" id="email" placeholder="Ваш email" />
+              <div class="form__input-row">
+                <input
+                  class="form__input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Ваше имя и фамилия"
+                  required
+                />
+                <lable class="error-message" id="nameError" for="name"></lable>
+              </div>
+              <div class="form__input-row">
+                <input
+                  class="form__input"
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="Ваш номер телефона"
+                  required
+                />
+                <lable class="error-message" id="phoneError" for="phoneNumber"></lable>
+              </div>
+              <div class="form__input-row">
+                <input
+                  class="form__input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Ваш email"
+                  required
+                />
+                <lable class="error-message" id="emailError" for="email"></lable>
+              </div>
+              <!-- <input
+                class="form__input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ваше имя и фамилия"
+                required
+              /> -->
+              <!-- <input
+                class="form__input"
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Ваш номер телефона"
+                required
+              /> -->
+              <!-- <input
+                class="form__input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Ваш email"
+                required
+              /> -->
               <button class="form-button" type="submit">Записаться бесплатно</button>
               <span class="policy"
                 >Нажимая на кнопку я согашаюсь с
@@ -111,6 +165,12 @@
         <div class="decor-inscription">front-end developer</div>
       </main>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="js/main.min.js"></script>
   </body>
 </html>

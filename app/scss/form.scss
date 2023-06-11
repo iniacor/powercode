@@ -38,9 +38,15 @@
   &--accent {
     color: $accent;
   }
-  &__input {
+  &__input-row {
     width: 100%;
     margin-bottom: 14px;
+    @include for-large-up {
+      min-height: 51px;
+    }
+  }
+  &__input {
+    width: 100%;
     padding: 12px 27px;
     font-weight: 400;
     font-size: 12px;
@@ -48,7 +54,7 @@
     color: white;
     background-color: #272d3d;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     @include for-large-up {
       min-height: 51px;
     }
@@ -93,5 +99,11 @@
     color: $light-text;
     cursor: pointer;
   }
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+  line-height: 0;
 }
 // form ends

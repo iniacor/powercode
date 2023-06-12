@@ -1,3 +1,4 @@
+const gulp = require('gulp');
 const { src, dest, watch, parallel, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
@@ -13,6 +14,7 @@ const fonter = require('gulp-fonter');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const svgSprite = require('gulp-svg-sprite');
 const include = require('gulp-include');
+const htmlmin = require('gulp-htmlmin');
 
 function styles() {
   return src('app/scss/style.scss')
@@ -74,6 +76,13 @@ function fonts() {
     .pipe(dest('app/fonts'));
 }
 
+function html() {
+  return gulp
+    .src('app/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('app'));
+}
+
 function pages() {
   return src('app/pages/*.html')
     .pipe(
@@ -111,7 +120,9 @@ function building() {
       'app/images/sprite.svg',
       'app/fonts/*.*',
       'app/js/main.min.js',
-      'app/pages/*.html',
+      'app/send_email.php',
+      'app/phpmailer/**/*',
+      'app/*.html',
     ],
     {
       base: 'app',
@@ -125,8 +136,9 @@ exports.images = images;
 exports.sprite = sprite;
 exports.fonts = fonts;
 exports.pages = pages;
+exports.html = html;
 exports.building = building;
 exports.watching = watching;
 
-exports.build = series(cleanDist, building);
+exports.build = series(cleanDist, html, building);
 exports.default = parallel(styles, scripts, images, fonts, pages, watching);

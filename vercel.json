@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/send_email",
+      "destination": "/send_email.php"
+    }
+  ]
+}

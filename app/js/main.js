@@ -1,3 +1,4 @@
+// form validation starts
 $.validator.addMethod(
   'validName',
   function (value, element) {
@@ -61,13 +62,38 @@ $(document).ready(function () {
     onkeyup: function (element) {
       $(element).valid();
     },
+
     errorPlacement: function (error, element) {
       error.addClass('error-message');
       error.appendTo(element.parent());
     },
+
+    submitHandler: function (thisForm) {
+      let formData = new FormData(thisForm);
+
+      fetch('send_email.php', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => {
+          if (response.ok) {
+            console.log('Отправлено');
+          } else {
+            console.error('Ошибка при отправке');
+          }
+        })
+        .catch(error => {
+          console.error('Ошибка при отправке:', error);
+        });
+
+      thisForm.reset();
+    },
   });
 });
 
+// form validation ends
+
+// phone input dropdown
 var input = document.querySelector('#phoneNumber');
 window.intlTelInput(input, {
   onlyCountries: ['ua', 'ru'],

@@ -9,7 +9,7 @@ $.validator.addMethod(
 $.validator.addMethod(
   'validPhoneNumber',
   function (value, element) {
-    return this.optional(element) || /^\d{8}$/.test(value);
+    return this.optional(element) || /^\d{8,13}$/.test(value);
   },
   'Please enter a valid phone number (8 digits only).',
 );
@@ -66,4 +66,11 @@ $(document).ready(function () {
       error.appendTo(element.parent());
     },
   });
+});
+
+var input = document.querySelector('#phoneNumber');
+window.intlTelInput(input, {
+  onlyCountries: ['ua', 'ru'],
+  initialCountry: 'UA',
+  utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
 });

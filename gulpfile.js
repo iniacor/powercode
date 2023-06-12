@@ -16,7 +16,7 @@ const include = require('gulp-include');
 
 function styles() {
   return src('app/scss/style.scss')
-    .pipe(autoprefixer({ overrideBrowserslist: ['last 2 versions'] }))
+    .pipe(autoprefixer({ overrideBrowserslist: ['last 3 versions'] }))
     .pipe(concat('style.min.css'))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(dest('app/css'))

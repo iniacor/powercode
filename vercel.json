@@ -7,12 +7,5 @@
   "rewrites": [
     { "source": "/send_email.php", "destination": "/send_email.php" },
     { "source": "/(.*)", "destination": "/$1" }
-  ],
-  "routes": [
-    {
-      "src": "/send_email.php",
-      "methods": ["POST"],
-      "dest": "/send_email.php"
-    }
   ]
 }

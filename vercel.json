@@ -1,8 +1,18 @@
 {
+  "functions": {
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.5.0"
+    }
+  },
   "rewrites": [
+    { "source": "/send_email.php", "destination": "/send_email.php" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ],
+  "routes": [
     {
-      "source": "/send_email",
-      "destination": "/send_email.php"
+      "src": "/send_email.php",
+      "methods": ["POST"],
+      "dest": "/send_email.php"
     }
   ]
 }

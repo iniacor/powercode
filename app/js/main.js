@@ -77,7 +77,7 @@ function handleSubmit(e) {
 
   let formData = new FormData(e.target);
 
-  fetch('../send_email.php', {
+  fetch('../send_mail.php', {
     method: 'POST',
     body: formData,
   })

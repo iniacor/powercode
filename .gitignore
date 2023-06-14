@@ -7,6 +7,8 @@
 # production
 /build
 /dist
+.vercel
+vendor
 
 # misc
 .DS_Store

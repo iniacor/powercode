@@ -15,6 +15,9 @@ const ttf2woff2 = require('gulp-ttf2woff2');
 const svgSprite = require('gulp-svg-sprite');
 const include = require('gulp-include');
 const htmlmin = require('gulp-htmlmin');
+const rename = require('gulp-rename');
+const gulpIf = require('gulp-if');
+const path = require('path');
 
 function styles() {
   return src('app/scss/style.scss')
@@ -120,11 +123,13 @@ function building() {
       'app/images/sprite.svg',
       'app/fonts/*.*',
       'app/js/main.min.js',
-      'app/send_mail.php',
+      'app/api/send_mail.php',
       'app/vercel.json',
+      'composer.json',
+      'composer.lock',
       'app/api/*.*',
-      'app/phpmailer/**/*',
-      'app/*.html',
+      'app/index.html',
+      'app/template_mail.html',
     ],
     {
       base: 'app',

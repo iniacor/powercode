@@ -24,6 +24,7 @@
   display: none;
   flex-direction: column;
   width: 150px;
+  z-index: 1;
   @include for-large-up {
     display: flex;
   }

@@ -8,14 +8,6 @@
     {
       "src": "/send_mail.php",
       "dest": "/api/send_mail.php"
-    },
-    {
-      "src": "/main.min.js",
-      "dest": "/js/main.min.js"
-    },
-    {
-      "src": "/style.min.css",
-      "dest": "/css/style.min.css"
     }
   ]
 }

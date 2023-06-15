@@ -62,11 +62,19 @@
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 auto;
-  max-width: 1072px;
+  width: 100%;
   padding: 0 16px;
+  @include for-small-up {
+    max-width: 606px;
+    padding: 0 26px;
+  }
+  @include for-medium-up {
+    max-width: 806px;
+    padding: 0 36px;
+  }
   @include for-large-up {
     grid-template-columns: repeat(2, 1fr);
-    width: 100%;
+    max-width: 1072px;
     padding: 0 56px;
   }
 }

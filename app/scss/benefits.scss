@@ -9,9 +9,16 @@
   max-width: 224px;
   width: 100%;
   padding: 36px 0;
+  @include for-small-up {
+    grid-column: 1;
+    flex-direction: row;
+    max-width: none;
+  }
+
   @include for-large-up {
     grid-row: 2 / auto;
     grid-column: 1;
+    flex-direction: column;
     max-width: none;
     padding: 0;
     justify-self: flex-start;
@@ -22,9 +29,14 @@
   display: flex;
   align-items: center;
   margin-bottom: 22px;
+  @include for-small-up {
+    justify-content: center;
+    width: 100%;
+  }
   @include for-large-up {
-    order: 2;
+    justify-content: flex-start;
     margin-bottom: 0;
+    order: 2;
   }
   &__info {
     flex-basis: 162px;
@@ -57,9 +69,14 @@
 .author {
   display: flex;
   align-items: center;
+  @include for-small-up {
+    justify-content: center;
+    width: 100%;
+  }
   @include for-large-up {
-    order: 1;
+    justify-content: flex-start;
     margin-bottom: 16px;
+    order: 1;
   }
   &__info {
     flex-basis: 162px;

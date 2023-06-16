@@ -130,6 +130,7 @@ function building() {
       'app/api/*.*',
       'app/index.html',
       'app/template_mail.html',
+      'app/.vercelignore',
     ],
     {
       base: 'app',

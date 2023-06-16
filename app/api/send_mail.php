@@ -9,7 +9,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mail = new PHPMailer(true);
-    $title = "Заявка с формы"
+    $title = "Заявка с формы";
+    $password = $_ENV['SMTP_PWD'];
 
     try {
         $mail->CharSet = "UTF-8";
@@ -34,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Host = "smtp.gmail.com";  // Replace with your SMTP server
         $mail->SMTPAuth = true;
         $mail->Username = "iniacor86@gmail.com";  // Replace with your SMTP username
-        $mail->Password = "klhfpamzuauejibk";  // Replace with your SMTP password
+        $mail->Password = $password;  // Replace with your SMTP password
         $mail->SMTPSecure = "ssl";  // Set the encryption type, if required
         $mail->Port = 465;  // Replace with the appropriate port number
 
         if ($mail->send()) {
-            $response = ["message" => "Данные отправлены!"];
+            $response = ["message" => "Спасибо за Вашу заявку, менеджер скоро с Вами свяжется!"];
         } else {
             $response = ["message" => "Ошибка отправки"];
         }

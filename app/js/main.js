@@ -10,9 +10,9 @@ $.validator.addMethod(
 $.validator.addMethod(
   'validPhoneNumber',
   function (value, element) {
-    return this.optional(element) || /^\d{8,13}$/.test(value);
+    return this.optional(element) || /^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(value);
   },
-  'Please enter a valid phone number (8 digits only).',
+  'Please enter a valid phone number (+38 (999) 99-99-999).',
 );
 
 $.validator.addMethod(
@@ -35,7 +35,7 @@ $(document).ready(function () {
         required: true,
         validName: true,
       },
-      phoneNumber: {
+      phone: {
         required: true,
         validPhoneNumber: true,
       },
@@ -49,7 +49,7 @@ $(document).ready(function () {
         required: 'Пожалуйста, введите ваше имя',
         validName: 'Пожалуйста введите корректное имя',
       },
-      phoneNumber: {
+      phone: {
         required: 'Пожалуйста, введите ваш номер',
         validPhoneNumber: 'Пожалуйста введите корректный номер',
       },
@@ -70,37 +70,49 @@ $(document).ready(function () {
   });
 });
 
+let phoneInput = document.querySelector('input[type="tel"]');
+let im = new Inputmask('+38 (999) 999-99-99');
+im.mask(phoneInput);
+
 // form validation ends
 
-function handleSubmit(e) {
-  e.preventDefault(); // Prevent the default form submission behavior
+// form submit starts
 
-  let formData = new FormData(e.target);
+const form = document.forms['myWebinarForm'];
 
-  fetch('../send_mail.php', {
-    method: 'POST',
-    body: formData,
-  })
-    .then(response => {
-      if (response.ok) {
-        console.log('Отправлено');
-      } else {
-        console.error('Ошибка при отправке');
-      }
-    })
-    .catch(error => {
-      console.error('Ошибка при отправке:', error);
-    });
+form.addEventListener('submit', formSubmit);
 
-  e.target.reset();
+async function formSubmit(e) {
+  e.preventDefault();
+  const data = serializeForm(form);
+  const response = await sendData(data);
+  if (response.ok) {
+    let result = await response.json();
+    alert(result.message);
+    form.reset();
+  } else {
+    alert('Код ошибки: ' + response.status);
+  }
 }
 
-document.querySelector('#myWebinarForm').addEventListener('submit', handleSubmit);
+function serializeForm(formNode) {
+  return new FormData(form);
+}
+
+async function sendData(data) {
+  return await fetch('../send_mail.php', {
+    method: 'POST',
+    body: data,
+  });
+}
+
+// form submit ends
 
 // phone input dropdown
-var input = document.querySelector('#phoneNumber');
-window.intlTelInput(input, {
-  onlyCountries: ['ua', 'us'],
-  initialCountry: 'UA',
-  utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
-});
+// var input = document.querySelector('#phoneNumber');
+// window.intlTelInput(input, {
+//   onlyCountries: ['ua', 'us'],
+//   initialCountry: 'UA',
+//   utilsScript:
+//     'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
+// });

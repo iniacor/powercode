@@ -11,10 +11,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.6/css/intlTelInput.css"
-    />
     <link rel="stylesheet" href="/css/style.min.css" />
     <title>Powercode Academy</title>
   </head>
@@ -51,7 +47,7 @@
             </h1>
             <p class="call-action__text">
               Узнайте какими
-              <span class="salary">навыками должен обладать фронтенд разработчик в 2022 году</span>
+              <span class="salary">навыками должен обладать фронтенд разработчик в 2023 году</span>
               и как начать карьеру в востребованной профессии
               <span class="salary--accent"
                 >с зарплатой <span class="salary--desctop-accent">от 1000$</span></span
@@ -86,8 +82,8 @@
                   class="form__input"
                   type="tel"
                   id="phoneNumber"
-                  name="phoneNumber"
-                  placeholder="Ваш номер телефона"
+                  name="phone"
+                  placeholder="+38 (999) 999-99-99"
                   required
                 />
                 <label class="error-message" id="phoneError" for="phoneNumber"></label>
@@ -157,7 +153,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.6/js/intlTelInput.min.js"></script>
-    <script src="/js/main.min.js"></script>
+    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.js"></script>
+    <script src="js/main.min.js"></script>
   </body>
 </html>

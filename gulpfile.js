@@ -15,45 +15,42 @@ const ttf2woff2 = require('gulp-ttf2woff2');
 const svgSprite = require('gulp-svg-sprite');
 const include = require('gulp-include');
 const htmlmin = require('gulp-htmlmin');
-const rename = require('gulp-rename');
-const gulpIf = require('gulp-if');
-const path = require('path');
 
 function styles() {
   return src('app/scss/style.scss')
     .pipe(autoprefixer({ overrideBrowserslist: ['last 3 versions'] }))
     .pipe(concat('style.min.css'))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(dest('app/public/css'))
+    .pipe(dest('app/css'))
     .pipe(browserSync.stream());
 }
 
 function scripts() {
-  return src('app/public/js/main.js')
+  return src('app/js/main.js')
     .pipe(concat('main.min.js'))
     .pipe(uglify())
-    .pipe(dest('app/public/js'))
+    .pipe(dest('app/js'))
     .pipe(browserSync.stream());
 }
 
 function images() {
-  return src(['app/public/images/src/*.*', '!app/public/images/src/*.svg'])
-    .pipe(newer('app/public/images'))
+  return src(['app/images/src/*.*', '!app/images/src/*.svg'])
+    .pipe(newer('app/images'))
     .pipe(avif({ quality: 50 }))
 
-    .pipe(src('app/public/images/src/*.*'))
-    .pipe(newer('app/public/images'))
+    .pipe(src('app/images/src/*.*'))
+    .pipe(newer('app/images'))
     .pipe(webp())
 
-    .pipe(src('app/public/images/src/*.*'))
-    .pipe(newer('app/public/images'))
+    .pipe(src('app/images/src/*.*'))
+    .pipe(newer('app/images'))
     .pipe(imagemin())
 
-    .pipe(dest('app/public/images'));
+    .pipe(dest('app/images'));
 }
 
 function sprite() {
-  return src('app/public/images/*.svg')
+  return src('app/images/*.svg')
     .pipe(
       svgSprite({
         mode: {
@@ -64,26 +61,26 @@ function sprite() {
         },
       }),
     )
-    .pipe(dest('app/public/images'));
+    .pipe(dest('app/images'));
 }
 
 function fonts() {
-  return src('app/public/fonts/src/*.*')
+  return src('app/fonts/src/*.*')
     .pipe(
       fonter({
         formats: ['woff', 'ttf'],
       }),
     )
-    .pipe(src('app/public/fonts/*.ttf'))
+    .pipe(src('app/fonts/*.ttf'))
     .pipe(ttf2woff2())
-    .pipe(dest('app/public/fonts'));
+    .pipe(dest('app/fonts'));
 }
 
 function html() {
   return gulp
-    .src('app/public/*.html')
+    .src('app/*.html')
     .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('app/public'));
+    .pipe(gulp.dest('app/'));
 }
 
 function pages() {
@@ -100,14 +97,14 @@ function pages() {
 function watching() {
   browserSync.init({
     server: {
-      baseDir: 'app/public',
+      baseDir: 'app',
     },
   });
   watch(['app/scss/**/*.scss'], styles);
-  watch(['app/public/images/src'], images);
-  watch(['app/public/js/main.js'], scripts);
+  watch(['app/images/src'], images);
+  watch(['app/js/main.js'], scripts);
   watch(['app/components/*', 'app/pages/*'], pages);
-  watch(['app/public/*.html']).on('change', browserSync.reload);
+  watch(['app/*.html']).on('change', browserSync.reload);
 }
 
 function cleanDist() {
@@ -117,17 +114,17 @@ function cleanDist() {
 function building() {
   return src(
     [
-      'app/public/css/style.min.css',
-      'app/public/images/*.*',
-      '!app/public/images/*.svg',
-      'app/public/images/sprite.svg',
-      'app/public/fonts/*.*',
-      'app/public/js/main.min.js',
+      'app/css/style.min.css',
+      'app/images/*.*',
+      '!app/images/*.svg',
+      'app/images/sprite.svg',
+      'app/fonts/*.*',
+      'app/js/main.min.js',
       'app/api/send_mail.php',
       'app/vercel.json',
       'app/composer.json',
       'app/composer.lock',
-      'app/public/index.html',
+      'app/index.html',
       'app/template_mail.html',
       'app/.vercelignore',
     ],

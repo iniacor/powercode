@@ -107,12 +107,3 @@ async function sendData(data) {
 }
 
 // form submit ends
-
-// phone input dropdown
-// var input = document.querySelector('#phoneNumber');
-// window.intlTelInput(input, {
-//   onlyCountries: ['ua', 'us'],
-//   initialCountry: 'UA',
-//   utilsScript:
-//     'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js',
-// });

@@ -39,12 +39,7 @@ h4 {
 }
 
 h1 {
-  font-size: 53px;
-  line-height: 65px;
-  @include for-large-up {
-    font-size: 77px;
-    line-height: 94px;
-  }
+  @include adaptiv-font(77, 48);
 }
 
 p {

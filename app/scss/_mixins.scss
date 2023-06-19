@@ -27,9 +27,15 @@ $breakpoint-xl: 1200px;
   }
 }
 
-$maxWidth: 1280;
+$maxWidth: 1440;
 @mixin adaptiv-font($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
   $maxWidth: $maxWidth - 320;
   font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+  line-height: 1.22;
+}
+@mixin adaptiv-side-padding($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 320;
+  padding: 0 calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 }

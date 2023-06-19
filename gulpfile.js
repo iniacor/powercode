@@ -108,7 +108,7 @@ function watching() {
 }
 
 function cleanDist() {
-  return src('dist', { allowEmpty: true, read: false }).pipe(clean());
+  return src('public', { allowEmpty: true, read: false }).pipe(clean());
 }
 
 function building() {
@@ -131,7 +131,7 @@ function building() {
     {
       base: 'app',
     },
-  ).pipe(dest('dist'));
+  ).pipe(dest('public'));
 }
 
 exports.styles = styles;

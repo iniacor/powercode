@@ -105,5 +105,36 @@ async function sendData(data) {
     body: data,
   });
 }
-
 // form submit ends
+
+// gsap animation starts
+// decor-block animation
+gsap.from('.decor-block__item--html,.decor-block__item--js, .decor-block__item--sublime', {
+  duration: 1,
+  opacity: 0,
+  x: 200,
+  stagger: 0.35,
+});
+gsap.to('.decor-block__item--sublime, .decor-block__item--vscode', {
+  rotationY: 360,
+  duration: 2,
+});
+gsap.from('.decor-block__item--css, .decor-block__item--vscode', {
+  duration: 1,
+  opacity: 0,
+  y: 200,
+  stagger: 0.55,
+});
+
+// form button animation
+const timeLeftLable = gsap.timeline({
+  defaults: { duration: 0.1 },
+  delay: 3,
+  repeat: -1,
+  repeatDelay: 8,
+});
+timeLeftLable
+  .to('.form-button', { rotate: 10 })
+  .to('.form-button', { rotate: -10 })
+  .to('.form-button', { rotate: 10 })
+  .to('.form-button', { rotate: 0 });

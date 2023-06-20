@@ -90,6 +90,8 @@ $(document).ready(function () {
           let result = await response.json();
           alert(result.message);
           form.reset();
+
+          webinarForm.find('.form__control').removeClass('success');
         } else {
           alert('Код ошибки: ' + response.status);
         }

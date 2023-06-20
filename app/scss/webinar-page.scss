@@ -1,7 +1,7 @@
 .webinar-page {
   position: relative;
   flex-grow: 1;
-  max-width: 1440px;
+  max-width: 2560px;
   margin: 0 auto;
   width: 100%;
   z-index: 1;
@@ -74,5 +74,8 @@
   @include for-large-up {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1072px;
+  }
+  @include for-full-screen {
+    max-width: 1272px;
   }
 }

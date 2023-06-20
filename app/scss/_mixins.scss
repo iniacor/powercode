@@ -3,6 +3,7 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+$breakpoint-xxl: 2560px;
 
 @mixin for-small-up {
   @media screen and (min-width: $breakpoint-sm) {
@@ -26,8 +27,13 @@ $breakpoint-xl: 1200px;
     @content;
   }
 }
+@mixin for-full-screen {
+  @media screen and (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
 
-$maxWidth: 1440;
+$maxWidth: 2560;
 @mixin adaptiv-font($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
   $maxWidth: $maxWidth - 320;

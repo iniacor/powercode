@@ -1,11 +1,11 @@
 // decor starts
 .decor-inscription {
   display: none;
-  @include adaptiv-font(117, 28);
+  @include adaptiv-font(206, 28);
   @include for-large-up {
     display: block;
     position: absolute;
-    bottom: -35px;
+    bottom: -28px;
     left: 0;
     right: 0;
     font-weight: 800;
@@ -18,7 +18,7 @@
 }
 .decor-block {
   position: absolute;
-  top: 35%;
+  top: 30%;
   right: 3%;
   display: none;
   flex-direction: column;
@@ -26,6 +26,9 @@
   z-index: 1;
   @include for-large-up {
     display: flex;
+  }
+  @include for-full-screen {
+    right: 2%;
   }
   &__item {
     position: relative;
@@ -99,26 +102,50 @@
     background-image: url('../images/html5-logo-icon.png');
     width: 88px;
     height: 88px;
+    @include for-full-screen {
+      width: 98px;
+      height: 98px;
+    }
   }
+
   &__icon--css {
     background-image: url('../images/CSS3-logo-icon.png');
     width: 60px;
     height: 85px;
+    @include for-full-screen {
+      width: 70px;
+      height: 95px;
+    }
   }
+
   &__icon--js {
     background-image: url('../images/javascript_logo-icon.png');
     width: 62px;
     height: 73px;
+    @include for-full-screen {
+      width: 72px;
+      height: 83px;
+    }
   }
+
   &__icon--sublime {
     background-image: url('../images/sublime-text-logo-icon.png');
     width: 54px;
     height: 54px;
+    @include for-full-screen {
+      width: 64px;
+      height: 64px;
+    }
   }
+
   &__icon--vscode {
     background-image: url('../images/VS-Code-logo-icon.png');
     width: 61px;
     height: 61px;
+    @include for-full-screen {
+      width: 71px;
+      height: 71px;
+    }
   }
 }
 // decor ends

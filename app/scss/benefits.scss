@@ -9,6 +9,7 @@
   max-width: 224px;
   width: 100%;
   padding: 36px 0;
+
   @include for-small-up {
     grid-column: 1;
     flex-direction: row;
@@ -29,6 +30,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 22px;
+
   @include for-small-up {
     justify-content: center;
     width: 100%;
@@ -47,6 +49,12 @@
       flex-basis: 210px;
       width: 100%;
     }
+    @include for-full-screen {
+      flex-basis: auto;
+      width: 100%;
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
   &__benefit {
     display: block;
@@ -57,6 +65,10 @@
       font-size: 12px;
       line-height: 18px;
     }
+    @include for-full-screen {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 }
 .bonus-icon {
@@ -64,49 +76,77 @@
   height: 46px;
   margin-right: 16px;
   background-image: url('../images/present.png');
+  @include for-full-screen {
+    width: 59px;
+    height: 59px;
+  }
 }
 
 .author {
   display: flex;
   align-items: center;
+
   @include for-small-up {
     justify-content: center;
     width: 100%;
   }
+
   @include for-large-up {
     justify-content: flex-start;
     margin-bottom: 16px;
     order: 1;
   }
+
   &__info {
     flex-basis: 162px;
     font-size: 12px;
     font-weight: 400;
     line-height: 19px;
+
     @include for-large-up {
       flex-basis: 320px;
     }
+
+    @include for-full-screen {
+      flex-basis: auto;
+      width: 100%;
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
+
   &__name {
     display: block;
     font-size: 14px;
     font-weight: 700;
     line-height: 17px;
     text-transform: uppercase;
+
     @include for-large-up {
       font-size: 13px;
       line-height: 16px;
     }
+
+    @include for-full-screen {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
+
   &__name--accent {
     color: $blue;
   }
 }
+
 .author-icon {
   width: 51px;
   height: 49px;
   margin-right: 12px;
   background-image: url('../images/author.png');
+  @include for-full-screen {
+    width: 61px;
+    height: 59px;
+  }
 }
 
 // benefits ends

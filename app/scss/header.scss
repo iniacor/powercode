@@ -16,6 +16,9 @@
     @include for-large-up {
       padding: 0 56px;
     }
+    @include for-full-screen {
+      max-width: 1272px;
+    }
   }
 }
 

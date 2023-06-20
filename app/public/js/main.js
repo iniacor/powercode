@@ -78,38 +78,6 @@ $(document).ready(function () {
   // form validation ends
 
   // form submit starts
-  // const form = webinarForm[0]; // Получаем DOM-элемент формы
-
-  // form.addEventListener('submit', formSubmit);
-
-  // async function formSubmit(e) {
-  //   e.preventDefault();
-
-  //   // Проверяем валидность формы
-  //   if (webinarForm.valid()) {
-  //     const data = serializeForm(form);
-  //     const response = await sendData(data);
-
-  //     if (response.ok) {
-  //       let result = await response.json();
-  //       alert(result.message);
-  //       form.reset();
-  //     } else {
-  //       alert('Код ошибки: ' + response.status);
-  //     }
-  //   }
-  // }
-
-  // function serializeForm(formNode) {
-  //   return new FormData(form);
-  // }
-
-  // function sendData(data) {
-  //   return fetch('../send_mail.php', {
-  //     method: 'POST',
-  //     body: data,
-  //   });
-  // }
   async function formSubmit(e) {
     e.preventDefault();
 
@@ -155,38 +123,6 @@ let phoneInput = document.querySelector('input[type="tel"]');
 let im = new Inputmask('+38 (999) 999-99-99');
 im.mask(phoneInput);
 
-// form submit starts
-// const form = document.forms['myWebinarForm'];
-
-// form.addEventListener('submit', formSubmit);
-
-// async function formSubmit(e) {
-//   e.preventDefault();
-//   const data = serializeForm(form);
-//   const response = await sendData(data);
-//   if (response.ok) {
-//     let result = await response.json();
-//     alert(result.message);
-//     form.reset();
-//   } else {
-//     alert('Код ошибки: ' + response.status);
-//   }
-// }
-
-// function serializeForm(formNode) {
-//   return new FormData(form);
-// }
-
-// async function sendData(data) {
-//   return await fetch('../send_mail.php', {
-//     method: 'POST',
-//     body: data,
-//   });
-// }
-// form submit ends
-
-// gsap animation starts
-// decor-block animation
 gsap.from('.decor-block__item--html,.decor-block__item--js, .decor-block__item--sublime', {
   duration: 1,
   opacity: 0,

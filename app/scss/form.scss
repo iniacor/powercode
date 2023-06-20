@@ -65,19 +65,21 @@
     }
 
     &.error {
-      border-color: $accent;
+      i.error-icon {
+        visibility: visible;
+      }
+      // border-color: $accent;
 
       .error-message {
         visibility: visible;
         color: $accent;
         padding-left: 5px;
       }
-
-      label {
-        visibility: visible;
+      .form__input {
+        border: 1px solid $accent;
       }
 
-      i.error-icon {
+      label {
         visibility: visible;
       }
     }

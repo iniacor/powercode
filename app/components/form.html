@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-  <form
+  <!-- <form
     class="form webinar-form"
     id="myWebinarForm"
     name="myWebinarForm"
@@ -44,6 +44,55 @@
         aria-label="Введите Ваш email"
       />
       <label class="error-message" id="emailError" for="email"></label>
+    </div>
+    <button class="form-button custom-btn" type="submit">Записаться бесплатно</button>
+    <span class="policy"
+      >Нажимая на кнопку я согашаюсь с
+      <a class="policy__link" href="#" target="_blank">политикой конфидециальности</a></span
+    >
+  </form> -->
+  <form class="form" id="myWebinarForm" name="myWebinarForm" action="send_mail.php" method="POST">
+    <h2 class="form__title">
+      Запишитесь <span class="form--accent">бесплатно</span> и получите подарок
+    </h2>
+    <div class="form__control">
+      <input
+        class="form__input"
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Ваше имя и фамилия"
+        aria-label="Введите Ваше имя"
+      />
+      <i class="icon check-icon"></i>
+      <i class="icon error-icon"></i>
+      <label class="error-message" for="name"></label>
+    </div>
+    <div class="form__control">
+      <input
+        class="form__input"
+        id="phoneNumber"
+        type="tel"
+        name="phone"
+        placeholder="+38 (999) 999-99-99"
+        aria-label="Введите Ваш номер"
+      />
+      <i class="icon check-icon"></i>
+      <i class="icon error-icon"></i>
+      <label class="error-message" for="phone"></label>
+    </div>
+    <div class="form__control">
+      <input
+        class="form__input"
+        id="email"
+        type="email"
+        name="email"
+        placeholder="example@gmail.com"
+        aria-label="Введите Ваш email"
+      />
+      <i class="icon check-icon"></i>
+      <i class="icon error-icon"></i>
+      <label class="error-message" for="email"></label>
     </div>
     <button class="form-button custom-btn" type="submit">Записаться бесплатно</button>
     <span class="policy"

@@ -9,6 +9,7 @@
     justify-self: flex-end;
   }
 }
+
 .form {
   display: flex;
   flex-direction: column;
@@ -19,53 +20,132 @@
   text-align: center;
   border-radius: 9px;
   box-shadow: 0px 8.96175px 44.8087px rgba(40, 127, 165, 0.1);
+
   @include for-large-up {
     flex-basis: 50%;
     max-width: 366px;
     height: auto;
     padding: 50px 55px;
   }
+
   &__title {
     margin-bottom: 18px;
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
+
     @include for-large-up {
       margin-bottom: 20px;
       font-size: 22px;
       line-height: 26px;
     }
   }
+
   &--accent {
     color: $accent;
   }
-  &__input-row {
+
+  &__control {
+    position: relative;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
     width: 100%;
-    margin-bottom: 14px;
+
     @include for-large-up {
       min-height: 51px;
+    }
+
+    label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: 12px;
+      color: $accent;
+      visibility: hidden;
+    }
+
+    &.error {
+      border-color: $accent;
+
+      .error-message {
+        visibility: visible;
+        color: $accent;
+        padding-left: 5px;
+      }
+
+      label {
+        visibility: visible;
+      }
+
+      i.error-icon {
+        visibility: visible;
+      }
+    }
+
+    &.success {
+      i.check-icon {
+        visibility: visible;
+      }
+
+      .form__input {
+        border: 1px solid $success;
+      }
+    }
+
+    i {
+      visibility: hidden;
+      position: absolute;
+      top: 14px;
+      right: 7px;
     }
   }
+
   &__input {
+    display: block;
+    font-family: inherit;
     width: 100%;
-    padding: 12px 27px;
+    padding: 10px 27px;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 22px;
-    color: white;
-    background-color: #272d3d;
+    color: $white;
+    background-color: $input-bg;
     border: none;
     border-radius: 5px;
+
     @include for-large-up {
       min-height: 51px;
     }
+
     &::placeholder {
       color: white;
+
       @include for-large-up {
         color: $placeholder-text;
       }
     }
+
+    &:focus {
+      outline: 0;
+      border-color: #777;
+    }
   }
+}
+
+.check-icon,
+.error-icon {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+}
+
+.check-icon {
+  background-image: url('../images/sprite.svg#check-icon');
+}
+
+.error-icon {
+  background-image: url('../images/sprite.svg#error-icon');
 }
 
 .custom-btn {
@@ -85,6 +165,7 @@
     4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   outline: none;
+
   @include for-large-up {
     max-width: none;
     height: 51px;
@@ -95,31 +176,36 @@
   background: $mobile-call-action-btn;
   border: none;
   z-index: 1;
+
   @include for-large-up {
     background: $accent;
   }
+
   &:hover {
-    color: #fff;
+    color: $white;
   }
+
   &:hover::after {
     left: 0;
     width: 100%;
   }
+
   &:active {
     top: 1px;
   }
+
   &::after {
     position: absolute;
     content: '';
-    width: 0;
-    height: 100%;
     top: 0;
     right: 0;
-    z-index: -1;
+    width: 0;
+    height: 100%;
     background-color: $accent;
     border-radius: 5px;
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
       4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    z-index: -1;
     transition: all 0.5s ease;
     @include for-large-up {
       background: $blue;
@@ -134,23 +220,21 @@
   line-height: 16px;
   text-align: center;
   color: $light-text;
+
   @include for-large-up {
     font-size: 12px;
     line-height: 18px;
   }
+
   &__link {
     color: $light-text;
     cursor: pointer;
     transition: color 0.4s ease;
+
     &:hover {
       color: $blue;
     }
   }
-}
-.error-message {
-  margin-top: 2px;
-  color: red;
-  font-size: 12px;
 }
 
 // form ends

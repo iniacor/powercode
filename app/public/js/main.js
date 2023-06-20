@@ -73,11 +73,9 @@ $(document).ready(function () {
 let phoneInput = document.querySelector('input[type="tel"]');
 let im = new Inputmask('+38 (999) 999-99-99');
 im.mask(phoneInput);
-
 // form validation ends
 
 // form submit starts
-
 const form = document.forms['myWebinarForm'];
 
 form.addEventListener('submit', formSubmit);

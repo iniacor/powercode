@@ -21,36 +21,36 @@ function styles() {
     .pipe(autoprefixer({ overrideBrowserslist: ['last 3 versions'] }))
     .pipe(concat('style.min.css'))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(dest('app/css'))
+    .pipe(dest('app/public/css'))
     .pipe(browserSync.stream());
 }
 
 function scripts() {
-  return src('app/js/main.js')
+  return src('app/public/js/main.js')
     .pipe(concat('main.min.js'))
     .pipe(uglify())
-    .pipe(dest('app/js'))
+    .pipe(dest('app/public/js'))
     .pipe(browserSync.stream());
 }
 
 function images() {
-  return src(['app/images/src/*.*', '!app/images/src/*.svg'])
-    .pipe(newer('app/images'))
+  return src(['app/public/images/src/*.*', '!app/public/images/src/*.svg'])
+    .pipe(newer('app/public/images'))
     .pipe(avif({ quality: 50 }))
 
-    .pipe(src('app/images/src/*.*'))
+    .pipe(src('app/public/images/src/*.*'))
     .pipe(newer('app/images'))
     .pipe(webp())
 
-    .pipe(src('app/images/src/*.*'))
-    .pipe(newer('app/images'))
+    .pipe(src('app/public/images/src/*.*'))
+    .pipe(newer('app/public/images'))
     .pipe(imagemin())
 
-    .pipe(dest('app/images'));
+    .pipe(dest('app/public/images'));
 }
 
 function sprite() {
-  return src('app/images/*.svg')
+  return src('app/public/images/*.svg')
     .pipe(
       svgSprite({
         mode: {
@@ -61,26 +61,26 @@ function sprite() {
         },
       }),
     )
-    .pipe(dest('app/images'));
+    .pipe(dest('app/public/images'));
 }
 
 function fonts() {
-  return src('app/fonts/src/*.*')
+  return src('app/public/fonts/src/*.*')
     .pipe(
       fonter({
         formats: ['woff', 'ttf'],
       }),
     )
-    .pipe(src('app/fonts/*.ttf'))
+    .pipe(src('app/public/fonts/*.ttf'))
     .pipe(ttf2woff2())
-    .pipe(dest('app/fonts'));
+    .pipe(dest('app/public/fonts'));
 }
 
 function html() {
   return gulp
-    .src('app/*.html')
+    .src('app/public/*.html')
     .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('app/'));
+    .pipe(gulp.dest('app/public/'));
 }
 
 function pages() {
@@ -90,21 +90,21 @@ function pages() {
         includePaths: 'app/components',
       }),
     )
-    .pipe(dest('app'))
+    .pipe(dest('app/public'))
     .pipe(browserSync.stream());
 }
 
 function watching() {
   browserSync.init({
     server: {
-      baseDir: 'app',
+      baseDir: 'app/public',
     },
   });
   watch(['app/scss/**/*.scss'], styles);
-  watch(['app/images/src'], images);
-  watch(['app/js/main.js'], scripts);
+  watch(['app/public/images/src'], images);
+  watch(['app/public/js/main.js'], scripts);
   watch(['app/components/*', 'app/pages/*'], pages);
-  watch(['app/*.html']).on('change', browserSync.reload);
+  watch(['app/public/*.html']).on('change', browserSync.reload);
 }
 
 function cleanDist() {
@@ -114,24 +114,24 @@ function cleanDist() {
 function building() {
   return src(
     [
-      'app/css/style.min.css',
-      'app/images/*.*',
-      '!app/images/*.svg',
-      'app/images/sprite.svg',
-      'app/fonts/*.*',
-      'app/js/main.min.js',
+      'app/public/css/style.min.css',
+      'app/public/images/*.*',
+      '!app/public/images/*.svg',
+      'app/public/images/sprite.svg',
+      'app/public/fonts/*.*',
+      'app/public/js/main.min.js',
       'app/api/send_mail.php',
       'app/vercel.json',
       'app/composer.json',
       'app/composer.lock',
-      'app/index.html',
+      'app/public/index.html',
       'app/template_mail.html',
       'app/.vercelignore',
     ],
     {
       base: 'app',
     },
-  ).pipe(dest('dist'));
+  ).pipe(dest('./'));
 }
 
 exports.styles = styles;
